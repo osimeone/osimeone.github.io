@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Videos — Osvaldo Simeone</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F8FB;--surface:#FFF;--text:#1a1a2e;--text2:#525A6A;--muted:#8891A0;
+  --accent:#2556C4;--accent-l:#EBF0FC;--violet:#6D3CC8;
+  --grad:linear-gradient(135deg,#2556C4,#6D3CC8);
+  --border:#E2E5EB;--serif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;--max:960px;--r:6px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,248,251,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px;height:56px;overflow-x:auto}
+nav .brand{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--text);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+nav .links{display:flex;gap:4px}
+nav .links a{font-size:13px;font-weight:500;color:var(--text2);text-decoration:none;padding:6px 10px;border-radius:var(--r);transition:.15s;white-space:nowrap}
+nav .links a:hover,nav .links a.active{color:var(--accent);background:var(--accent-l)}
+nav .sub{display:flex;gap:4px;margin-left:8px;border-left:1px solid var(--border);padding-left:8px}
+nav .sub a{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;padding:4px 8px;border-radius:var(--r);white-space:nowrap}
+nav .sub a:hover,nav .sub a.active{color:var(--accent);background:var(--accent-l)}
+
+/* HERO */
+.hero{max-width:var(--max);margin:0 auto;padding:56px 24px 48px;display:grid;grid-template-columns:1fr 220px;gap:48px;align-items:start}
+.hero-text h1{font-family:var(--serif);font-size:40px;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.hero .tagline{margin-top:10px;font-size:15px;font-weight:500;color:var(--text2);letter-spacing:.03em}
+.hero .tagline span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+.hero .intro{margin-top:20px;font-size:16px;line-height:1.7;color:var(--text2);max-width:560px}
+.hero-links{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+.hero-links a{font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;padding:7px 14px;border:1px solid var(--border);border-radius:100px;transition:.15s}
+.hero-links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hero-photo{display:flex;flex-direction:column;align-items:center;gap:14px}
+.photo-frame{width:200px;height:240px;border-radius:10px;overflow:hidden;background:var(--border)}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);text-align:center;padding:12px;line-height:1.4}
+.contact-mini{font-size:12px;color:var(--muted);text-align:center;line-height:1.6}
+
+/* ACCENT BAR */
+.accent-bar{max-width:var(--max);margin:0 auto;padding:0 24px}
+.accent-bar div{height:2px;background:var(--grad);border-radius:2px}
+
+/* SECTIONS */
+section,.page-body{max-width:var(--max);margin:0 auto;padding:48px 24px}
+section h2,.page-body h2{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:24px;letter-spacing:-.01em}
+section h2 .label,.page-body h2 .label{font-family:var(--sans);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);display:block;margin-bottom:4px}
+.page-body h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:32px 0 12px}
+.page-body p,.page-body>div{font-size:15px;line-height:1.65;color:var(--text2);margin-bottom:12px;max-width:720px}
+
+/* CARDS */
+.highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:box-shadow .2s}
+.card:hover{box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.card .date{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+.card h3{font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.35;margin-bottom:6px}
+.card p{font-size:13.5px;color:var(--text2);line-height:1.55}
+
+/* RESEARCH AREAS */
+.research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.research-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;position:relative;overflow:hidden}
+.research-area::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.research-area:nth-child(1)::before{background:#2556C4}.research-area:nth-child(2)::before{background:#6D3CC8}
+.research-area:nth-child(3)::before{background:#0E8A7D}.research-area:nth-child(4)::before{background:#C4632A}
+.research-area:nth-child(5)::before{background:#2D6EA8}
+.research-area h3{font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:6px}
+.research-area p{font-size:13px;color:var(--text2);line-height:1.5}
+
+/* PUB LIST */
+.pub-list{list-style:none}.pub-list li{padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.55;color:var(--text2)}
+.pub-list li:last-child{border-bottom:none}
+.pub-list li a{color:var(--accent);text-decoration:none;font-weight:500}.pub-list li a:hover{text-decoration:underline}
+.see-all{display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none}
+
+/* BOOKS */
+.books-row{display:flex;gap:24px;flex-wrap:wrap}
+.book-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;flex:1 1 260px;max-width:450px}
+.book-card h3{font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.35;margin-bottom:4px}
+.book-card .pub{font-size:13px;color:var(--muted)}.book-card p{margin-top:8px;font-size:13.5px;color:var(--text2);line-height:1.5}
+
+/* CTA */
+.cta-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cta-box p{font-size:15px;color:var(--text2);max-width:560px;line-height:1.6}
+.cta-box a.btn{font-size:13px;font-weight:600;color:#fff;background:var(--grad);padding:10px 22px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:opacity .15s}
+.cta-box a.btn:hover{opacity:.88}
+
+/* TEAM */
+.team-section{margin-bottom:32px}
+.team-section h3{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:12px}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.team-member{font-size:14px;color:var(--text2);padding:8px 0}
+.team-member a{font-weight:500}
+.team-member .thesis{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+
+/* TEACHING */
+.course-list{list-style:none}.course-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2)}
+
+/* NEWS */
+.news-list{list-style:none}.news-list li{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.55;color:var(--text2)}
+.news-list li:last-child{border-bottom:none}
+
+/* VIDEO */
+.video-list{list-style:none}.video-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);line-height:1.5}
+
+/* TOC */
+.toc{margin-top:16px}
+.toc h4{font-family:var(--serif);font-size:15px;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.toc ul{list-style:none;margin-left:16px}
+.toc li{font-size:13.5px;color:var(--text2);line-height:1.7}
+.toc .part{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--text);margin-top:24px;margin-bottom:8px}
+
+/* FOOTER */
+footer{max-width:var(--max);margin:0 auto;padding:32px 24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .addr{font-size:13px;color:var(--muted);line-height:1.6}
+footer .foot-links{display:flex;gap:16px}
+footer .foot-links a{font-size:13px;color:var(--text2);text-decoration:none}
+
+/* OTHER */
+.playlist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:12px}
+.playlist-grid a{font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;padding:6px 10px;border:1px solid var(--border);border-radius:var(--r);text-align:center;transition:.15s}
+.playlist-grid a:hover{background:var(--accent-l)}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;padding:36px 20px 32px;gap:32px}
+  .hero-photo{order:-1;flex-direction:row;gap:16px}
+  .photo-frame{width:120px;height:150px;flex-shrink:0}
+  .hero-text h1{font-size:30px}
+  section,.page-body{padding:36px 20px}
+  .cta-box{flex-direction:column;align-items:flex-start}
+  nav .inner{gap:16px}
+}
+</style></head><body><nav><div class="inner"><a class="brand" href="index.html">O. Simeone</a><div class="links"><a href="index.html">Home</a><a href="bio.html">Bio</a><a href="research.html">Research</a><a href="teaching.html">Teaching</a><a href="team.html">Team</a><a href="ml4eng.html">ML4ENG</a><a href="cqit.html">CQIT</a><a href="news.html">News</a><a href="videos.html"  class=active>Videos</a><a href="other.html">Other</a></div></div></nav><div class="page-body">
+<h2><span class="label">Talks &amp; lectures</span>Videos</h2>
+<ul class="video-list">
+<li><a href="https://www.youtube.com/watch?v=OCdhFG9TfeM">What If? Reliable Counterfactual Inference for AI-Native Wireless Networks</a> (Northeastern University, July 2026)</li>
+<li><a href="https://drive.google.com/file/d/1YFxksRZMMWoKpughLPHSU1x7w8EVNvHq/view">Beyond Best Effort: Reliable and Efficient AI for Wireless Systems</a> (TU Berlin)</li>
+<li><a href="https://youtu.be/FwrBm5pkWiU?t=77">Centre for Telecommunication Research at King's</a></li>
+<li><a href="https://www.itu.int/en/journal/j-fet/webinars/20250617/Pages/default.aspx">Beyond best effort: Reliable and efficient AI for wireless systems</a> (ITU-J)</li>
+<li><a href="https://www.youtube.com/playlist?list=PLg7f-TkW11iWbqxYJheUjhwD7Sy_aKQvn">Royal Society meeting: Bits, neurons, and qubits for sustainable AI</a></li>
+<li><a href="https://www.youtube.com/watch?v=00Whx2GmymE&t=32m52s">Inaugural lecture</a>, 2024</li>
+<li><a href="https://www.youtube.com/watch?v=QdN19ApWfl0">How To Know When You Don't Know: AI for Engineering and 6G</a>, EUSIPCO 2023</li>
+<li><a href="https://nyu.zoom.us/rec/play/Z_nn6vwOH93K3sD1y23AOo4DXQrNhwdOaQDyMRyo7xbtCLw5_Yaq1m8U7zOSK2dvcb6iPc_X3ATFAxtE.hwXO6KftT2SFxbfJ">Free Energy Minimization: Information-Theoretic Fundamentals and Applications</a>, Dec. 2021</li>
+<li><a href="https://www.youtube.com/watch?v=9i11h54-4HI&t=145s">Distributed Bayesian Learning</a> (One World Signal Processing Seminar 2021)</li>
+<li><a href="https://www.youtube.com/watch?time_continue=2&v=Y4A3HkGkG3I">Meta-learning to Communicate</a> (WindMill 2020)</li>
+<li><a href="https://www.youtube.com/watch?v=1Y_UgqvMlng">Interview with Alexander Holevo</a> (Shannon award winner 2016)</li>
+<li><a href="https://www.youtube.com/watch?v=nAZf3b0fpG4">Interview with János Körner</a> (Shannon award winner 2014)</li>
+<li><a href="https://www.youtube.com/watch?v=C_SPkkuPDRI">Cloud processing for 5G systems</a> (CWCSPR 2015)</li>
+</ul>
+</div><footer><div class="addr"><a href="https://www.nulondon.ac.uk/">Northeastern University London</a><br>One Portsoken · London E1 8BT</div><div class="foot-links"><a href="https://scholar.google.co.uk/citations?user=m1xeKH4AAAAJ&hl=en">Scholar</a> <a href="https://arxiv.org/search/?query=osvaldo+simeone&searchtype=all">arXiv</a></div></footer></body></html>
