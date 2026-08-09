@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pavia Mini-Course — Osvaldo Simeone</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F8FB;--surface:#FFF;--text:#1a1a2e;--text2:#525A6A;--muted:#8891A0;
+  --accent:#2556C4;--accent-l:#EBF0FC;--violet:#6D3CC8;
+  --grad:linear-gradient(135deg,#2556C4,#6D3CC8);
+  --border:#E2E5EB;--serif:'Source Serif 4',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;--max:960px;--r:6px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,248,251,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px;height:56px;overflow-x:auto}
+nav .brand{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--text);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+nav .links{display:flex;gap:4px}
+nav .links a{font-size:13px;font-weight:500;color:var(--text2);text-decoration:none;padding:6px 10px;border-radius:var(--r);transition:.15s;white-space:nowrap}
+nav .links a:hover,nav .links a.active{color:var(--accent);background:var(--accent-l)}
+nav .sub{display:flex;gap:4px;margin-left:8px;border-left:1px solid var(--border);padding-left:8px}
+nav .sub a{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;padding:4px 8px;border-radius:var(--r);white-space:nowrap}
+nav .sub a:hover,nav .sub a.active{color:var(--accent);background:var(--accent-l)}
+
+/* HERO */
+.hero{max-width:var(--max);margin:0 auto;padding:56px 24px 48px;display:grid;grid-template-columns:1fr 220px;gap:48px;align-items:start}
+.hero-text h1{font-family:var(--serif);font-size:40px;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.hero .tagline{margin-top:10px;font-size:15px;font-weight:500;color:var(--text2);letter-spacing:.03em}
+.hero .tagline span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+.hero .intro{margin-top:20px;font-size:16px;line-height:1.7;color:var(--text2);max-width:560px}
+.hero-links{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+.hero-links a{font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;padding:7px 14px;border:1px solid var(--border);border-radius:100px;transition:.15s}
+.hero-links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hero-photo{display:flex;flex-direction:column;align-items:center;gap:14px}
+.photo-frame{width:200px;height:240px;border-radius:10px;overflow:hidden;background:var(--border)}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);text-align:center;padding:12px;line-height:1.4}
+.contact-mini{font-size:12px;color:var(--muted);text-align:center;line-height:1.6}
+
+/* ACCENT BAR */
+.accent-bar{max-width:var(--max);margin:0 auto;padding:0 24px}
+.accent-bar div{height:2px;background:var(--grad);border-radius:2px}
+
+/* SECTIONS */
+section,.page-body{max-width:var(--max);margin:0 auto;padding:48px 24px}
+section h2,.page-body h2{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:24px;letter-spacing:-.01em}
+section h2 .label,.page-body h2 .label{font-family:var(--sans);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);display:block;margin-bottom:4px}
+.page-body h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:32px 0 12px}
+.page-body p,.page-body>div{font-size:15px;line-height:1.65;color:var(--text2);margin-bottom:12px;max-width:720px}
+
+/* CARDS */
+.highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:box-shadow .2s}
+.card:hover{box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.card .date{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+.card h3{font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.35;margin-bottom:6px}
+.card p{font-size:13.5px;color:var(--text2);line-height:1.55}
+
+/* RESEARCH AREAS */
+.research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.research-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;position:relative;overflow:hidden}
+.research-area::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.research-area:nth-child(1)::before{background:#2556C4}.research-area:nth-child(2)::before{background:#6D3CC8}
+.research-area:nth-child(3)::before{background:#0E8A7D}.research-area:nth-child(4)::before{background:#C4632A}
+.research-area:nth-child(5)::before{background:#2D6EA8}
+.research-area h3{font-family:var(--serif);font-size:15px;font-weight:600;margin-bottom:6px}
+.research-area p{font-size:13px;color:var(--text2);line-height:1.5}
+
+/* PUB LIST */
+.pub-list{list-style:none}.pub-list li{padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.55;color:var(--text2)}
+.pub-list li:last-child{border-bottom:none}
+.pub-list li a{color:var(--accent);text-decoration:none;font-weight:500}.pub-list li a:hover{text-decoration:underline}
+.see-all{display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none}
+
+/* BOOKS */
+.books-row{display:flex;gap:24px;flex-wrap:wrap}
+.book-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;flex:1 1 260px;max-width:450px}
+.book-card h3{font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.35;margin-bottom:4px}
+.book-card .pub{font-size:13px;color:var(--muted)}.book-card p{margin-top:8px;font-size:13.5px;color:var(--text2);line-height:1.5}
+
+/* CTA */
+.cta-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cta-box p{font-size:15px;color:var(--text2);max-width:560px;line-height:1.6}
+.cta-box a.btn{font-size:13px;font-weight:600;color:#fff;background:var(--grad);padding:10px 22px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:opacity .15s}
+.cta-box a.btn:hover{opacity:.88}
+
+/* TEAM */
+.team-section{margin-bottom:32px}
+.team-section h3{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:12px}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.team-member{font-size:14px;color:var(--text2);padding:8px 0}
+.team-member a{font-weight:500}
+.team-member .thesis{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+
+/* TEACHING */
+.course-list{list-style:none}.course-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2)}
+
+/* NEWS */
+.news-list{list-style:none}.news-list li{padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.55;color:var(--text2)}
+.news-list li:last-child{border-bottom:none}
+
+/* VIDEO */
+.video-list{list-style:none}.video-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);line-height:1.5}
+
+/* TOC */
+.toc{margin-top:16px}
+.toc h4{font-family:var(--serif);font-size:15px;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.toc ul{list-style:none;margin-left:16px}
+.toc li{font-size:13.5px;color:var(--text2);line-height:1.7}
+.toc .part{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--text);margin-top:24px;margin-bottom:8px}
+
+/* FOOTER */
+footer{max-width:var(--max);margin:0 auto;padding:32px 24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .addr{font-size:13px;color:var(--muted);line-height:1.6}
+footer .foot-links{display:flex;gap:16px}
+footer .foot-links a{font-size:13px;color:var(--text2);text-decoration:none}
+
+/* OTHER */
+.playlist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:12px}
+.playlist-grid a{font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;padding:6px 10px;border:1px solid var(--border);border-radius:var(--r);text-align:center;transition:.15s}
+.playlist-grid a:hover{background:var(--accent-l)}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;padding:36px 20px 32px;gap:32px}
+  .hero-photo{order:-1;flex-direction:row;gap:16px}
+  .photo-frame{width:120px;height:150px;flex-shrink:0}
+  .hero-text h1{font-size:30px}
+  section,.page-body{padding:36px 20px}
+  .cta-box{flex-direction:column;align-items:flex-start}
+  nav .inner{gap:16px}
+}
+</style></head><body><nav><div class="inner"><a class="brand" href="index.html">O. Simeone</a><div class="links"><a href="index.html">Home</a><a href="bio.html">Bio</a><a href="research.html" class=active>Research</a><a href="teaching.html">Teaching</a><a href="team.html">Team</a><a href="ml4eng.html">ML4ENG</a><a href="cqit.html">CQIT</a><a href="news.html">News</a><a href="videos.html">Videos</a><a href="other.html">Other</a></div><div class="sub"><a href="books.html">Books</a><a href="book-chapters.html">Book Chapters</a><a href="magazine-papers.html">Magazine</a><a href="journal-papers.html">Journal</a><a href="conference-papers.html">Conference</a><a href="presentations.html" class=active>Presentations</a></div></div></nav><div class="page-body">
+<h2><span class="label">University of Pavia — May 25–29, 2026</span>Mini-Course on Reliable and Efficient AI</h2>
+<p><strong>Lecturer:</strong> Osvaldo Simeone (Northeastern University London)</p>
+
+<h3>Overview</h3>
+<p>This mini-course starts by exploring two frontier directions in the design of AI systems that are computationally efficient: neuromorphic computing and quantum machine learning. The course concludes with a rigorous treatment of calibration methods that provide formal statistical guarantees on the behaviour of AI models in practice. The material is drawn from the lecturer's recent research and monographs, offering a unified perspective that bridges theory and emerging applications.</p>
+<p><a href="https://www.dropbox.com/scl/fi/bsoc93dxizi4mqop6p8s6/Pavia_Simeone_intro.pdf?rlkey=ztglp7su3xma2zpsewpn2aslw&dl=0">Slides: Overview</a></p>
+
+<h3>Part I — Modern Neuromorphic Computing</h3>
+<p>The rapid growth of AI has brought unprecedented capabilities but also escalating energy demands. This first part examines neuromorphic computing as a principled response to that challenge, revisiting brain-inspired design ideas in the light of modern deep learning architectures.</p>
+<p>Drawing on the paper <em>Modern Neuromorphic AI: From Intra-Token to Inter-Token Processing</em> (<a href="https://arxiv.org/abs/2601.00245">arXiv:2601.00245</a>), the lectures explore how concepts such as discrete and sparse activations, recurrent dynamics, and non-linear feedback — long central to spiking neural networks (SNNs) — reappear in contemporary architectures including state-space models and transformers. A key organising lens is the distinction between intra-token processing (transformations across the channels of a single input vector) and inter-token processing (transformations across a sequence of vectors).</p>
+<p>The second part of this block turns to communication systems as a compelling application domain. Based on the paper <em>Neuromorphic Wireless Cognition</em> (<a href="https://arxiv.org/abs/2206.06047">arXiv:2206.06047</a>, Chen, Skatchkovsky &amp; Simeone, IEEE Trans. Cognitive Commun. Netw., 2023), the lectures present an end-to-end design for neuromorphic wireless IoT systems.</p>
+<p><strong>Topics covered:</strong> Spiking neural networks and biologically inspired computing · Connections between SNNs, state-space models, and transformer architectures · Intra-token vs. inter-token processing · Event-driven semantic communications · End-to-end neuromorphic system design for wireless IoT</p>
+<p><a href="https://www.dropbox.com/scl/fi/5evm1ya0avvzlzf75z643/Pavia_Simeone_Part_I.pdf?rlkey=2bhqbeiropzu369oql45jdaym&dl=0">Slides: Part I</a></p>
+
+<h3>Part II — Quantum Statistics and Machine Learning</h3>
+<p>The second part introduces quantum machine learning (QML) from an engineer's perspective, with an emphasis on statistical foundations and learning-theoretic analysis. Lectures follow in part the monograph <em>An Introduction to Quantum Machine Learning for Engineers</em> (<a href="https://arxiv.org/abs/2205.09510">arXiv:2205.09510</a>) and the textbook <a href="cqit.html">Classical and Quantum Information Theory</a> (Cambridge University Press).</p>
+<p>The material is self-contained, starting from quantum states, operations, and measurements before building up to parametrised quantum circuits (PQCs). A particular focus is placed on fundamental statistical tasks in the quantum setting: binary hypothesis testing and classification, quantum state discrimination, and learning from data when measurements are destructive and irreversible.</p>
+<p><strong>Topics covered:</strong> Quantum states, operations, and measurements · Parametrised quantum circuits (PQCs) · Binary quantum classification and hypothesis testing · Quantum generative and discriminative models · Learning-theoretic analysis: copy complexity and generalisation in QML · The variational quantum eigensolver</p>
+<p><a href="https://www.dropbox.com/scl/fi/56jwngwshjkiaotejrczj/Pavia_Simeone_Part_II.pdf?rlkey=j5px38f67urbkb83d6xo5fciq&dl=0">Slides: Part II</a></p>
+
+<h3>Part III — Calibration for Reliable AI</h3>
+<p>The final part addresses one of the most pressing practical challenges in deploying AI: ensuring that model outputs come with rigorous, interpretable reliability guarantees. Based on the survey <em>Conformal Calibration</em> (<a href="https://arxiv.org/abs/2504.09310">arXiv:2504.09310</a>, Simeone, Park &amp; Zecchin, 2025), the lectures review conformal calibration — a collection of computationally lightweight, statistically rigorous tools that operate on top of any pre-trained model without requiring retraining.</p>
+<p><strong>Topics covered:</strong> Limitations of the train-and-deploy paradigm · Conformal prediction and uncertainty quantification · Prediction sets with formal coverage guarantees · Statistically valid hyperparameter selection · Online monitoring and adaptive calibration · Applications to communication systems and beyond</p>
+<p><a href="https://www.dropbox.com/scl/fi/s5p2bnn9r3zkhza3sa1bd/Pavia_Simeone_Part_III.pdf?rlkey=1oc3xicbd7p3b7pzkuqeusahp&dl=0">Slides: Part III</a></p>
+
+<h3>Part IV (Bonus) — Measures of Evidence</h3>
+<p>The fourth part develops a rigorous, modern treatment of statistical hypothesis testing, with an emphasis on the principles that underlie both classical and emerging approaches. The central question is how to quantify evidence against a null hypothesis in a way that is statistically valid, interpretable, and computationally tractable.</p>
+<p>The first block covers the foundations of p-value construction, introducing p-values as measures of evidence and examining their strengths and limitations. A general recipe for constructing valid p-values under composite nulls is presented: rank p-values for the exchangeability null, sign-flip p-values for the symmetry null, Hoeffding p-values for bounded means, and permutation p-values under group-invariance nulls.</p>
+<p>The second block introduces e-values as an alternative and often more powerful currency for expressing statistical evidence. The lectures establish key properties: post-hoc validity, multiplicative combination across independent experiments, and robustness to optional stopping. The connection to sequential inference is made precise through e-processes and Ville's inequality.</p>
+<p><strong>Topics covered:</strong> p-values as measures of evidence: construction, calibration, and limitations · Rank, sign-flip, Hoeffding, and permutation p-values · e-values: definition, properties, and comparison with p-values · e-processes</p>
+<p><a href="https://www.dropbox.com/scl/fi/73b0hqgygmrivmwt1i3qp/Pavia_Simeone_Part-IV.pdf?rlkey=ij00rqtg8tgvqudhdlgrbk5vf&dl=0">Slides: Part IV</a></p>
+
+<h3>Prerequisites</h3>
+<p>A background in probability, linear algebra, and basic machine learning is assumed. No prior knowledge of quantum mechanics or neuromorphic hardware is required; all necessary concepts will be developed from first principles during the course.</p>
+
+<h3>Reference Materials</h3>
+<ul class="pub-list">
+<li>O. Simeone, <em>Modern Neuromorphic AI: From Intra-Token to Inter-Token Processing</em>, <a href="https://arxiv.org/abs/2601.00245">arXiv:2601.00245</a> (2026)</li>
+<li>J. Chen, N. Skatchkovsky, O. Simeone, <em>Neuromorphic Wireless Cognition: Event-Driven Semantic Communications for Remote Inference</em>, IEEE Trans. Cognitive Commun. Netw., 2023 (<a href="https://arxiv.org/abs/2206.06047">arXiv:2206.06047</a>)</li>
+<li>O. Simeone, <em>An Introduction to Quantum Machine Learning for Engineers</em>, Foundations and Trends in Signal Processing (<a href="https://arxiv.org/abs/2205.09510">arXiv:2205.09510</a>)</li>
+<li>O. Simeone, <em><a href="https://www.cambridge.org/highereducation/books/classical-and-quantum-information-theory/BE2A1546B495D102670D20D7066B3E8E#overview">Classical and Quantum Information Theory</a></em>, Cambridge University Press, 2026</li>
+<li>O. Simeone, S. Park, M. Zecchin, <em>Conformal Calibration: Ensuring the Reliability of Black-Box AI in Wireless Systems</em>, <a href="https://arxiv.org/abs/2504.09310">arXiv:2504.09310</a> (2025)</li>
+<li>A. Ramdas, R. Wang, <em>Hypothesis Testing with e-values</em>, Foundations and Trends in Statistics, 2025 (<a href="https://arxiv.org/pdf/2410.23614">arXiv:2410.23614</a>)</li>
+<li>A. Ramdas, P. Grünwald, V. Vovk, G. Shafer, <em>Game-Theoretic Statistics and Safe Anytime-Valid Inference</em>, Statistical Science, 2023 (<a href="https://arxiv.org/abs/2210.01948">arXiv:2210.01948</a>)</li>
+<li>I. Waudby-Smith, A. Ramdas, <em>Estimating Means of Bounded Random Variables by Betting</em>, JRSS-B, 2024 (<a href="https://arxiv.org/abs/2010.09686">arXiv:2010.09686</a>)</li>
+<li>N. Koning, <em>Post-Hoc Hypothesis Testing</em>, 2023 (<a href="https://arxiv.org/abs/2312.08040">arXiv:2312.08040</a>)</li>
+</ul>
+</div><footer><div class="addr"><a href="https://www.nulondon.ac.uk/">Northeastern University London</a><br>One Portsoken · London E1 8BT</div><div class="foot-links"><a href="https://scholar.google.co.uk/citations?user=m1xeKH4AAAAJ&hl=en">Scholar</a> <a href="https://arxiv.org/search/?query=osvaldo+simeone&searchtype=all">arXiv</a></div></footer></body></html>
