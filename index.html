@@ -129,28 +129,6 @@ footer .foot-links a{font-size:13px;color:var(--text2);text-decoration:none}
 .playlist-grid a{font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;padding:6px 10px;border:1px solid var(--border);border-radius:var(--r);text-align:center;transition:.15s}
 .playlist-grid a:hover{background:var(--accent-l)}
 
-/* ARXIV CAROUSEL */
-.arxiv-section{max-width:var(--max);margin:0 auto;padding:40px 24px 0}
-.arxiv-section h2{font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
-.arxiv-section h2 .label{font-family:var(--sans);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);display:block;margin-bottom:4px}
-.arxiv-wrap{position:relative}
-.arxiv-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
-.arxiv-track::-webkit-scrollbar{display:none}
-.arxiv-card{flex:0 0 300px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;transition:box-shadow .2s}
-.arxiv-card:hover{box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.arxiv-card .ax-date{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
-.arxiv-card .ax-title{font-family:var(--serif);font-size:14.5px;font-weight:600;line-height:1.35;margin-bottom:6px}
-.arxiv-card .ax-title a{color:var(--text);text-decoration:none}
-.arxiv-card .ax-title a:hover{color:var(--accent)}
-.arxiv-card .ax-authors{font-size:12.5px;color:var(--text2);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.arxiv-card .ax-id{font-size:11px;color:var(--accent);margin-top:8px;font-weight:500}
-.arxiv-nav{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--text2);transition:.15s;z-index:2;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.arxiv-nav:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-.arxiv-nav.prev{left:-8px}
-.arxiv-nav.next{right:-8px}
-.arxiv-loading{font-size:13px;color:var(--muted);padding:24px 0}
-@media(max-width:700px){.arxiv-card{flex:0 0 260px}.arxiv-nav{display:none}}
-
 /* RESPONSIVE */
 @media(max-width:700px){
   .hero{grid-template-columns:1fr;padding:36px 20px 32px;gap:32px}
@@ -193,72 +171,6 @@ One Portsoken, London E1 8BT
 </div>
 </header>
 <div class="accent-bar"><div></div></div>
-
-<div class="arxiv-section">
-<h2><span class="label">From arXiv</span>Recent Preprints</h2>
-<div class="arxiv-wrap">
-<div class="arxiv-nav prev" onclick="scrollArxiv(-1)">&#8249;</div>
-<div class="arxiv-track" id="arxiv-track">
-<div class="arxiv-loading" id="arxiv-loading">Loading latest papers from arXiv…</div>
-</div>
-<div class="arxiv-nav next" onclick="scrollArxiv(1)">&#8250;</div>
-</div>
-</div>
-
-<script>
-(function(){
-  var ARXIV_URL='https://export.arxiv.org/api/query?search_query=au:simeone_o&sortBy=lastUpdatedDate&sortOrder=descending&max_results=5';
-  var PROXY='https://corsproxy.io/?url=';
-  var track=document.getElementById('arxiv-track');
-  var loading=document.getElementById('arxiv-loading');
-
-  function renderCards(xml){
-    var doc=new DOMParser().parseFromString(xml,'application/xml');
-    var entries=doc.querySelectorAll('entry');
-    if(!entries.length) return false;
-    track.innerHTML='';
-    entries.forEach(function(e){
-      var title=e.querySelector('title').textContent.replace(/\s+/g,' ').trim();
-      var link=e.querySelector('id').textContent.trim();
-      var published=e.querySelector('published').textContent.trim();
-      var authors=Array.from(e.querySelectorAll('author name')).map(function(a){return a.textContent.trim()}).join(', ');
-      var arxivId=link.replace('http://arxiv.org/abs/','').replace('https://arxiv.org/abs/','');
-      var date=new Date(published);
-      var dateStr=date.toLocaleDateString('en-GB',{month:'short',year:'numeric'});
-      var card=document.createElement('div');
-      card.className='arxiv-card';
-      card.innerHTML=
-        '<div class="ax-date">'+dateStr+'</div>'+
-        '<div class="ax-title"><a href="'+link+'" target="_blank" rel="noopener">'+title+'</a></div>'+
-        '<div class="ax-authors">'+authors+'</div>'+
-        '<div class="ax-id">arXiv:'+arxivId+'</div>';
-      track.appendChild(card);
-    });
-    return true;
-  }
-
-  fetch(PROXY+encodeURIComponent(ARXIV_URL))
-    .then(function(r){return r.text()})
-    .then(function(xml){
-      if(!renderCards(xml)) throw new Error('empty');
-    })
-    .catch(function(){
-      fetch(ARXIV_URL)
-        .then(function(r){return r.text()})
-        .then(function(xml){
-          if(!renderCards(xml)) throw new Error('empty');
-        })
-        .catch(function(){
-          loading.innerHTML='See the latest papers on <a href="https://arxiv.org/search/?query=osvaldo+simeone&searchtype=all&order=-announced_date_first" style="font-weight:600">arXiv</a>.';
-        });
-    });
-})();
-
-function scrollArxiv(dir){
-  var track=document.getElementById('arxiv-track');
-  track.scrollBy({left:dir*316,behavior:'smooth'});
-}
-</script>
 
 <section>
 <h2><span class="label">Latest</span>Highlights</h2>
