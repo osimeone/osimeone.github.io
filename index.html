@@ -207,38 +207,50 @@ One Portsoken, London E1 8BT
 
 <script>
 (function(){
-  var API='https://export.arxiv.org/api/query?search_query=au:simeone_o&sortBy=lastUpdatedDate&sortOrder=descending&max_results=5';
+  var ARXIV_URL='https://export.arxiv.org/api/query?search_query=au:simeone_o&sortBy=lastUpdatedDate&sortOrder=descending&max_results=5';
+  var PROXY='https://corsproxy.io/?url=';
   var track=document.getElementById('arxiv-track');
   var loading=document.getElementById('arxiv-loading');
 
-  fetch(API)
+  function renderCards(xml){
+    var doc=new DOMParser().parseFromString(xml,'application/xml');
+    var entries=doc.querySelectorAll('entry');
+    if(!entries.length) return false;
+    track.innerHTML='';
+    entries.forEach(function(e){
+      var title=e.querySelector('title').textContent.replace(/\s+/g,' ').trim();
+      var link=e.querySelector('id').textContent.trim();
+      var published=e.querySelector('published').textContent.trim();
+      var authors=Array.from(e.querySelectorAll('author name')).map(function(a){return a.textContent.trim()}).join(', ');
+      var arxivId=link.replace('http://arxiv.org/abs/','').replace('https://arxiv.org/abs/','');
+      var date=new Date(published);
+      var dateStr=date.toLocaleDateString('en-GB',{month:'short',year:'numeric'});
+      var card=document.createElement('div');
+      card.className='arxiv-card';
+      card.innerHTML=
+        '<div class="ax-date">'+dateStr+'</div>'+
+        '<div class="ax-title"><a href="'+link+'" target="_blank" rel="noopener">'+title+'</a></div>'+
+        '<div class="ax-authors">'+authors+'</div>'+
+        '<div class="ax-id">arXiv:'+arxivId+'</div>';
+      track.appendChild(card);
+    });
+    return true;
+  }
+
+  fetch(PROXY+encodeURIComponent(ARXIV_URL))
     .then(function(r){return r.text()})
     .then(function(xml){
-      var doc=new DOMParser().parseFromString(xml,'application/xml');
-      var entries=doc.querySelectorAll('entry');
-      if(!entries.length){loading.textContent='Could not load papers.';return;}
-      track.innerHTML='';
-      entries.forEach(function(e){
-        var title=e.querySelector('title').textContent.replace(/\s+/g,' ').trim();
-        var link=e.querySelector('id').textContent.trim();
-        var published=e.querySelector('published').textContent.trim();
-        var authors=Array.from(e.querySelectorAll('author name')).map(function(a){return a.textContent.trim()}).join(', ');
-        var arxivId=link.replace('http://arxiv.org/abs/','').replace('https://arxiv.org/abs/','');
-        var date=new Date(published);
-        var dateStr=date.toLocaleDateString('en-GB',{month:'short',year:'numeric'});
-
-        var card=document.createElement('div');
-        card.className='arxiv-card';
-        card.innerHTML=
-          '<div class="ax-date">'+dateStr+'</div>'+
-          '<div class="ax-title"><a href="'+link+'" target="_blank" rel="noopener">'+title+'</a></div>'+
-          '<div class="ax-authors">'+authors+'</div>'+
-          '<div class="ax-id">arXiv:'+arxivId+'</div>';
-        track.appendChild(card);
-      });
+      if(!renderCards(xml)) throw new Error('empty');
     })
     .catch(function(){
-      loading.textContent='Could not load papers — visit arXiv directly.';
+      fetch(ARXIV_URL)
+        .then(function(r){return r.text()})
+        .then(function(xml){
+          if(!renderCards(xml)) throw new Error('empty');
+        })
+        .catch(function(){
+          loading.innerHTML='See the latest papers on <a href="https://arxiv.org/search/?query=osvaldo+simeone&searchtype=all&order=-announced_date_first" style="font-weight:600">arXiv</a>.';
+        });
     });
 })();
 
